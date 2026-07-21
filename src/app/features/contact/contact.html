@@ -1,0 +1,167 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header">
+      <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Contato' : 'Contact' }}</span>
+      <h2 class="section-title">{{ translationService.currentContent().contact.title }}</h2>
+      <p class="section-subtitle">{{ translationService.currentContent().contact.subtitle }}</p>
+    </div>
+
+    <!-- Contact Layout Grid -->
+    <div class="contact-grid">
+      
+      <!-- Column 1: Contact Info Details -->
+      <div class="contact-info-col">
+        <h3 class="info-group-title">{{ translationService.currentContent().contact.infoTitle }}</h3>
+        
+        <!-- Address Card -->
+        <div class="info-card glass-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="info-card-text">
+            <h4>{{ translationService.currentContent().contact.addressLabel }}</h4>
+            <p>{{ translationService.currentContent().contact.addressValue }}</p>
+          </div>
+        </div>
+
+        <!-- Phone & Email Grid -->
+        <div class="info-card-row">
+          <div class="info-card glass-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="info-card-text">
+              <h4>{{ translationService.currentContent().contact.phoneLabel }}</h4>
+              <p>{{ translationService.currentContent().contact.phoneValue }}</p>
+            </div>
+          </div>
+
+          <div class="info-card glass-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="info-card-text">
+              <h4>{{ translationService.currentContent().contact.emailLabel }}</h4>
+              <p><a [href]="'mailto:' + translationService.currentContent().contact.emailValue">{{ translationService.currentContent().contact.emailValue }}</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours Card -->
+        <div class="info-card glass-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="info-card-text">
+            <h4>{{ translationService.currentContent().contact.hoursLabel }}</h4>
+            <p>{{ translationService.currentContent().contact.hoursValue }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Validated Message Form -->
+      <div class="contact-form-col">
+        <div class="form-container-card glass-card">
+          
+          <!-- Success Notification Banner -->
+          @if (submitSuccess() === true) {
+            <div class="alert alert-success animated-fade-in">
+              <div class="alert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="alert-content">
+                <h4 class="alert-title">{{ translationService.currentContent().contact.form.successTitle }}</h4>
+                <p>{{ translationService.currentContent().contact.form.successMessage }}</p>
+              </div>
+            </div>
+          }
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">{{ translationService.currentContent().contact.form.nameLabel }}</label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name" 
+                class="form-control" 
+                [class.invalid]="isFieldInvalid('name')"
+                [placeholder]="translationService.currentContent().contact.form.namePlaceholder">
+              @if (isFieldInvalid('name')) {
+                <div class="error-msg">{{ translationService.currentContent().contact.form.nameErrorRequired }}</div>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">{{ translationService.currentContent().contact.form.emailLabel }}</label>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                class="form-control" 
+                [class.invalid]="isFieldInvalid('email')"
+                [placeholder]="translationService.currentContent().contact.form.emailPlaceholder">
+              @if (isFieldInvalid('email')) {
+                <div class="error-msg">
+                  @if (contactForm.get('email')?.hasError('required')) {
+                    {{ translationService.currentContent().contact.form.emailErrorRequired }}
+                  } @else {
+                    {{ translationService.currentContent().contact.form.emailErrorInvalid }}
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group">
+              <label for="subject" class="form-label">{{ translationService.currentContent().contact.form.subjectLabel }}</label>
+              <input 
+                type="text" 
+                id="subject" 
+                formControlName="subject" 
+                class="form-control" 
+                [class.invalid]="isFieldInvalid('subject')"
+                [placeholder]="translationService.currentContent().contact.form.subjectPlaceholder">
+              @if (isFieldInvalid('subject')) {
+                <div class="error-msg">{{ translationService.currentContent().contact.form.subjectErrorRequired }}</div>
+              }
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message" class="form-label">{{ translationService.currentContent().contact.form.messageLabel }}</label>
+              <textarea 
+                id="message" 
+                formControlName="message" 
+                class="form-control textarea" 
+                [class.invalid]="isFieldInvalid('message')"
+                [placeholder]="translationService.currentContent().contact.form.messagePlaceholder" 
+                rows="5"></textarea>
+              @if (isFieldInvalid('message')) {
+                <div class="error-msg">{{ translationService.currentContent().contact.form.messageErrorRequired }}</div>
+              }
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+              type="submit" 
+              class="btn btn-primary btn-submit" 
+              [disabled]="isSubmitting()">
+              @if (isSubmitting()) {
+                <span class="spinner"></span>
+                {{ translationService.currentContent().contact.form.submitBtnSending }}
+              } @else {
+                {{ translationService.currentContent().contact.form.submitBtn }}
+              }
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

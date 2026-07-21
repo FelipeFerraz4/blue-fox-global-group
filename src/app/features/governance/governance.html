@@ -1,0 +1,51 @@
+<section id="governance" class="governance-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header">
+      <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Governança' : 'Governance' }}</span>
+      <h2 class="section-title">{{ translationService.currentContent().governance.title }}</h2>
+      <p class="section-subtitle">{{ translationService.currentContent().governance.subtitle }}</p>
+    </div>
+
+    <!-- Overview Text -->
+    <div class="governance-intro glass-card">
+      <p>{{ translationService.currentContent().governance.description }}</p>
+    </div>
+
+    <!-- Principles List -->
+    <div class="principles-container">
+      <h3 class="subsection-title">{{ translationService.currentContent().governance.principlesTitle }}</h3>
+      <div class="principles-grid">
+        @for (principle of translationService.currentContent().governance.principles; track principle.title) {
+          <div class="principle-card">
+            <div class="principle-indicator"></div>
+            <div class="principle-info">
+              <h4 class="principle-name">{{ principle.title }}</h4>
+              <p class="principle-desc">{{ principle.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Executive Team -->
+    <div class="team-container">
+      <h3 class="subsection-title">{{ translationService.currentContent().governance.teamTitle }}</h3>
+      <div class="team-grid">
+        @for (member of translationService.currentContent().governance.team; track member.name) {
+          <div class="team-card glass-card">
+            <div class="avatar-container">
+              <!-- Geometric Initials Avatar -->
+              <div class="avatar-initials">
+                {{ member.name.substring(0, 1) }}{{ member.name.split(' ')[1]?.substring(0, 1) || '' }}
+              </div>
+            </div>
+            <h4 class="member-name">{{ member.name }}</h4>
+            <h5 class="member-role">{{ member.role }}</h5>
+            <p class="member-bio">{{ member.bio }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

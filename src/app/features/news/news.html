@@ -1,0 +1,33 @@
+<section id="news" class="news-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header">
+      <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Notícias' : 'News' }}</span>
+      <h2 class="section-title">{{ translationService.currentContent().news.title }}</h2>
+      <p class="section-subtitle">{{ translationService.currentContent().news.subtitle }}</p>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="articles-grid">
+      @for (article of translationService.currentContent().news.articles; track article.id) {
+        <article class="article-card glass-card">
+          <div class="article-header">
+            <span class="article-date">{{ article.date }}</span>
+            <span class="article-category">{{ article.category }}</span>
+          </div>
+          <h3 class="article-title">{{ article.title }}</h3>
+          <p class="article-summary">{{ article.summary }}</p>
+          <div class="article-footer">
+            <span class="read-time">
+              {{ article.readTime }} {{ translationService.currentContent().news.readTimeLabel }}
+            </span>
+            <a href="#" class="btn-text article-link" (click)="$event.preventDefault();">
+              {{ translationService.currentContent().news.readMore }}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

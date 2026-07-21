@@ -1,0 +1,169 @@
+.portfolio-section {
+  background: var(--color-bg);
+  position: relative;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.35rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.filter-btn:hover {
+  background: rgba(56, 182, 255, 0.06);
+  border-color: rgba(56, 182, 255, 0.3);
+  color: #ffffff;
+}
+
+.filter-btn.active {
+  background: var(--gradient-brand);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glow-effect {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 100%, rgba(56, 182, 255, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.category-tag {
+  font-size: 0.7rem;
+  font-family: var(--font-headers);
+  font-weight: 800;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+/* Category Colors */
+.category-tag.tech {
+  background: rgba(56, 182, 255, 0.08);
+  border-color: rgba(56, 182, 255, 0.2);
+  color: var(--color-brand-light);
+}
+
+.category-tag.energy {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #10b981; /* Emerald */
+}
+
+.category-tag.logistics {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.2);
+  color: #a78bfa; /* Violet */
+}
+
+.category-tag.ventures {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+  color: #f59e0b; /* Amber */
+}
+
+.metric-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+}
+
+.company-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.company-tagline {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-brand-light);
+  margin-bottom: 1.25rem;
+}
+
+.company-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.company-footer {
+  margin-top: auto;
+}
+
+.company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-brand-light);
+  padding: 0;
+}
+
+.company-link svg {
+  transition: transform var(--transition-speed) ease;
+}
+
+.company-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

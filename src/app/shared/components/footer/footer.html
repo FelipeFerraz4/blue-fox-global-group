@@ -1,0 +1,92 @@
+<footer class="site-footer">
+  <div class="footer-container container">
+    <!-- Brand / Column 1 -->
+    <div class="footer-column brand-col">
+      <div class="footer-logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,15 15,45 25,75 50,60" fill="url(#footerGrad)" />
+          <polygon points="50,15 85,45 75,75 50,60" fill="url(#footerGradDark)" />
+          <polygon points="50,60 25,75 50,90 75,75" fill="#38b6ff" opacity="0.8" />
+          <defs>
+            <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38b6ff" />
+              <stop offset="100%" stop-color="#004aad" />
+            </linearGradient>
+            <linearGradient id="footerGradDark" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#004aad" />
+              <stop offset="100%" stop-color="#002b66" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-blue">BLUE FOX</span>
+          <span class="brand-white">GLOBAL</span>
+        </span>
+      </div>
+      <p class="footer-desc">
+        {{ translationService.currentLang() === 'pt' 
+          ? 'Investindo em tecnologia disruptiva, transição energética e inovação operacional para impulsionar o amanhã.' 
+          : 'Investing in disruptive technology, energy transition, and operational innovation to empower tomorrow.' }}
+      </p>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn" class="social-icon">LN</a>
+        <a href="#" aria-label="Twitter" class="social-icon">X</a>
+        <a href="#" aria-label="Medium" class="social-icon">M</a>
+      </div>
+    </div>
+
+    <!-- Quick Links / Column 2 -->
+    <div class="footer-column">
+      <h3 class="footer-title">
+        {{ translationService.currentLang() === 'pt' ? 'Navegação' : 'Navigation' }}
+      </h3>
+      <ul class="footer-links">
+        <li><a href="#about" (click)="scrollToSection('about'); $event.preventDefault();">{{ translationService.currentContent().nav.about }}</a></li>
+        <li><a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">{{ translationService.currentContent().nav.portfolio }}</a></li>
+        <li><a href="#governance" (click)="scrollToSection('governance'); $event.preventDefault();">{{ translationService.currentContent().nav.governance }}</a></li>
+        <li><a href="#news" (click)="scrollToSection('news'); $event.preventDefault();">{{ translationService.currentContent().nav.news }}</a></li>
+        <li><a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault();">{{ translationService.currentContent().nav.contact }}</a></li>
+      </ul>
+    </div>
+
+    <!-- Enterprises / Column 3 -->
+    <div class="footer-column">
+      <h3 class="footer-title">
+        {{ translationService.currentLang() === 'pt' ? 'Holdings & Empresas' : 'Holdings & Enterprises' }}
+      </h3>
+      <ul class="footer-links">
+        <li><a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">Blue Fox Tech</a></li>
+        <li><a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">Blue Fox Energy</a></li>
+        <li><a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">Blue Fox Logistics</a></li>
+        <li><a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">Blue Fox Ventures</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info / Column 4 -->
+    <div class="footer-column info-col">
+      <h3 class="footer-title">
+        {{ translationService.currentContent().contact.infoTitle }}
+      </h3>
+      <p class="info-item">
+        <strong>{{ translationService.currentContent().contact.addressLabel }}:</strong><br>
+        {{ translationService.currentContent().contact.addressValue }}
+      </p>
+      <p class="info-item">
+        <strong>{{ translationService.currentContent().contact.emailLabel }}:</strong><br>
+        <a [href]="'mailto:' + translationService.currentContent().contact.emailValue">{{ translationService.currentContent().contact.emailValue }}</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-container container">
+      <p>&copy; {{ currentYear }} Blue Fox Global Group. {{ translationService.currentLang() === 'pt' ? 'Todos os direitos reservados.' : 'All rights reserved.' }}</p>
+      <div class="footer-bottom-links">
+        <a href="#">{{ translationService.currentLang() === 'pt' ? 'Políticas de Privacidade' : 'Privacy Policy' }}</a>
+        <span class="dot">&bull;</span>
+        <a href="#">{{ translationService.currentLang() === 'pt' ? 'Termos de Uso' : 'Terms of Use' }}</a>
+      </div>
+    </div>
+  </div>
+</footer>

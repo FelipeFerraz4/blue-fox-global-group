@@ -1,0 +1,114 @@
+.news-section {
+  background: var(--color-bg);
+  position: relative;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.25rem;
+}
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.article-date {
+  font-size: 0.8rem;
+  font-family: var(--font-headers);
+  color: var(--color-text-muted);
+}
+
+.article-category {
+  font-size: 0.7rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-brand-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  background: rgba(56, 182, 255, 0.04);
+  border: 1px solid rgba(56, 182, 255, 0.15);
+  border-radius: 4px;
+}
+
+.article-title {
+  font-size: 1.25rem;
+  font-family: var(--font-headers);
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-weight: 700;
+  transition: color var(--transition-speed) ease;
+}
+
+.article-card:hover .article-title {
+  color: var(--color-brand-light);
+}
+
+.article-summary {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1.25rem;
+  margin-top: auto;
+}
+
+.read-time {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-brand-light);
+  padding: 0;
+}
+
+.article-link svg {
+  transition: transform var(--transition-speed) ease;
+}
+
+.article-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  blue-fox-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blue-fox-global-group-ssr
+    restart: unless-stopped
+    ports:
+      - "80:4000"
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
