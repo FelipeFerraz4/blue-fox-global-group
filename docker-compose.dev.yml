@@ -1,0 +1,6 @@
+services:
+  blue-fox-app:
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "4200:4200"
