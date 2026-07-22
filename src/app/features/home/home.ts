@@ -1,7 +1,8 @@
-import { Component, inject, OnInit, signal, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit, signal, PLATFORM_ID, effect } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,24 @@ import { TranslationService } from '../../core/services/translation.service';
 })
 export class Home implements OnInit {
   protected readonly translationService = inject(TranslationService);
+  private readonly seoService = inject(SeoService);
   private readonly platformId = inject(PLATFORM_ID);
 
   // Animated stats values
   protected animatedStats = signal<string[]>(['0', '0', '0', '0']);
+
+  constructor() {
+    effect(() => {
+      const lang = this.translationService.currentLang();
+      const content = this.translationService.currentContent().home;
+      this.seoService.updateMetadata({
+        title: content.hero.title,
+        description: content.hero.subtitle,
+        url: `https://bluefoxglobalgroup.com/${lang}`,
+        keywords: 'Blue Fox, Global Group, Holding, Investimentos, Tecnologia, Aquarismo, Technology, Innovation'
+      });
+    });
+  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -68,3 +83,4 @@ export class Home implements OnInit {
     return (labels as Record<string, string>)[status] || status;
   }
 }
+

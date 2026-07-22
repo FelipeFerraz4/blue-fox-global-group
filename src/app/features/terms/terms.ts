@@ -5,27 +5,26 @@ import { TranslationService } from '../../core/services/translation.service';
 import { SeoService } from '../../core/services/seo.service';
 
 @Component({
-  selector: 'app-founder',
+  selector: 'app-terms',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './founder.html',
-  styleUrl: './founder.css'
+  templateUrl: './terms.html',
+  styleUrl: './terms.css'
 })
-export class FounderComponent {
+export class Terms {
   protected readonly translationService = inject(TranslationService);
   private readonly seoService = inject(SeoService);
 
   constructor() {
     effect(() => {
       const lang = this.translationService.currentLang();
-      const content = this.translationService.currentContent().founder;
+      const content = this.translationService.currentContent().terms;
       this.seoService.updateMetadata({
         title: content.title,
         description: content.subtitle,
-        url: `https://bluefoxglobalgroup.com/${lang}/founder`,
-        keywords: 'Felipe Ferraz, Fundador, Founder, CEO, Liderança, Empreendedorismo, Blue Fox'
+        url: `https://bluefoxglobalgroup.com/${lang}/terms`,
+        keywords: 'Termos de Serviço, Terms of Service, Blue Fox Global Group, Regras de Uso'
       });
     });
   }
 }
-

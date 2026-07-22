@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslationService } from '../../core/services/translation.service';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +13,7 @@ import { TranslationService } from '../../core/services/translation.service';
 })
 export class Contact {
   protected readonly translationService = inject(TranslationService);
+  private readonly seoService = inject(SeoService);
   private readonly fb = inject(FormBuilder);
 
   protected contactForm: FormGroup;
@@ -19,6 +21,17 @@ export class Contact {
   protected submitSuccess = signal<boolean | null>(null);
 
   constructor() {
+    effect(() => {
+      const lang = this.translationService.currentLang();
+      const content = this.translationService.currentContent().contact;
+      this.seoService.updateMetadata({
+        title: content.title,
+        description: content.subtitle,
+        url: `https://bluefoxglobalgroup.com/${lang}/contact`,
+        keywords: 'Contato, Contact, Fale Conosco, Parcerias, Investimento, Blue Fox Global Group'
+      });
+    });
+
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -55,3 +68,4 @@ export class Contact {
     return !!(field && field.invalid && (field.dirty || field.touched));
   }
 }
+

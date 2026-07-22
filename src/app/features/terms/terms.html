@@ -1,0 +1,37 @@
+<div class="legal-page section-padding">
+  <div class="container">
+    <div class="legal-header text-center">
+      <span class="badge">Legal</span>
+      <h1 class="page-title">{{ translationService.currentContent().terms.title }}</h1>
+      <p class="page-subtitle">{{ translationService.currentContent().terms.subtitle }}</p>
+    </div>
+
+    <div class="legal-card">
+      <div class="important-notice">
+        <div class="notice-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p>{{ translationService.currentContent().terms.importantNotice }}</p>
+      </div>
+
+      <div class="legal-sections">
+        <div class="legal-section" *ngFor="let sec of translationService.currentContent().terms.sections">
+          <h2>{{ sec.title }}</h2>
+          <p>{{ sec.content }}</p>
+        </div>
+      </div>
+
+      <div class="legal-footer">
+        <span class="effective-date">{{ translationService.currentContent().terms.effectiveDate }}</span>
+        <div class="legal-links">
+          <a [routerLink]="['/', translationService.currentLang(), 'privacy']" class="legal-link-btn">
+            {{ translationService.currentLang() === 'pt' ? 'Ver Política de Privacidade' : 'View Privacy Policy' }} &rarr;
+          </a>
+          <a [routerLink]="['/', translationService.currentLang()]" class="legal-link-btn back-btn">
+            &larr; {{ translationService.currentContent().terms.backHome }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

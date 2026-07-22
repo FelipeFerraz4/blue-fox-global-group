@@ -30,12 +30,12 @@
         {{ translationService.currentLang() === 'pt' ? 'Navegação' : 'Navigation' }}
       </h3>
       <ul class="footer-links">
-        <li><a routerLink="/">{{ translationService.currentContent().nav.home }}</a></li>
-        <li><a routerLink="/about">{{ translationService.currentContent().nav.about }}</a></li>
-        <li><a routerLink="/portfolio">{{ translationService.currentContent().nav.portfolio }}</a></li>
-        <li><a routerLink="/founder">{{ translationService.currentContent().nav.founder }}</a></li>
-        <li><a routerLink="/news">{{ translationService.currentContent().nav.news }}</a></li>
-        <li><a routerLink="/contact">{{ translationService.currentContent().nav.contact }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang()]">{{ translationService.currentContent().nav.home }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'about']">{{ translationService.currentContent().nav.about }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'portfolio']">{{ translationService.currentContent().nav.portfolio }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'founder']">{{ translationService.currentContent().nav.founder }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'news']">{{ translationService.currentContent().nav.news }}</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'contact']">{{ translationService.currentContent().nav.contact }}</a></li>
       </ul>
     </div>
 
@@ -46,8 +46,8 @@
       </h3>
       <ul class="footer-links">
         <li><a href="https://bluefoxaquarismo.space/" target="_blank" rel="noopener noreferrer">Blue Fox Aquarismo</a></li>
-        <li><a routerLink="/portfolio">Blue Fox Games & Apps</a></li>
-        <li><a routerLink="/portfolio">Blue Fox AI</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'portfolio']">Blue Fox Games & Apps</a></li>
+        <li><a [routerLink]="['/', translationService.currentLang(), 'portfolio']">Blue Fox AI</a></li>
       </ul>
     </div>
 
@@ -72,9 +72,9 @@
     <div class="footer-bottom-container container">
       <p>&copy; {{ currentYear }} Blue Fox Global Group. {{ translationService.currentLang() === 'pt' ? 'Todos os direitos reservados.' : 'All rights reserved.' }}</p>
       <div class="footer-bottom-links">
-        <a href="#">{{ translationService.currentLang() === 'pt' ? 'Políticas de Privacidade' : 'Privacy Policy' }}</a>
+        <a [routerLink]="['/', translationService.currentLang(), 'privacy']">{{ translationService.currentLang() === 'pt' ? 'Políticas de Privacidade' : 'Privacy Policy' }}</a>
         <span class="dot">&bull;</span>
-        <a href="#">{{ translationService.currentLang() === 'pt' ? 'Termos de Uso' : 'Terms of Use' }}</a>
+        <a [routerLink]="['/', translationService.currentLang(), 'terms']">{{ translationService.currentLang() === 'pt' ? 'Termos de Uso' : 'Terms of Use' }}</a>
       </div>
     </div>
   </div>

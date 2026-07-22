@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [
+const featureRoutes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home').then(m => m.Home)
@@ -26,7 +26,53 @@ export const routes: Routes = [
     loadComponent: () => import('./features/contact/contact').then(m => m.Contact)
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: 'privacy',
+    loadComponent: () => import('./features/privacy/privacy').then(m => m.Privacy)
+  },
+  {
+    path: 'terms',
+    loadComponent: () => import('./features/terms/terms').then(m => m.Terms)
   }
 ];
+
+export const routes: Routes = [
+  {
+    path: 'pt',
+    children: featureRoutes
+  },
+  {
+    path: 'en',
+    children: featureRoutes
+  },
+  // Compatibility / default redirects to /pt or /en
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'pt'
+  },
+  {
+    path: 'portfolio',
+    redirectTo: 'pt/portfolio'
+  },
+  {
+    path: 'about',
+    redirectTo: 'pt/about'
+  },
+  {
+    path: 'founder',
+    redirectTo: 'pt/founder'
+  },
+  {
+    path: 'news',
+    redirectTo: 'pt/news'
+  },
+  {
+    path: 'contact',
+    redirectTo: 'pt/contact'
+  },
+  {
+    path: '**',
+    redirectTo: 'pt'
+  }
+];
+

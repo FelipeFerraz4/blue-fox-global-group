@@ -1,6 +1,7 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../core/services/translation.service';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,7 +12,21 @@ import { TranslationService } from '../../core/services/translation.service';
 })
 export class Portfolio {
   protected readonly translationService = inject(TranslationService);
+  private readonly seoService = inject(SeoService);
   protected readonly selectedCategory = signal<string>('all');
+
+  constructor() {
+    effect(() => {
+      const lang = this.translationService.currentLang();
+      const content = this.translationService.currentContent().portfolio;
+      this.seoService.updateMetadata({
+        title: content.title,
+        description: content.subtitle,
+        url: `https://bluefoxglobalgroup.com/${lang}/portfolio`,
+        keywords: 'Portfólio, Projects, Empresas, Blue Fox Aquarismo, Games, AI, Tecnologia'
+      });
+    });
+  }
 
   protected readonly filteredCompanies = computed(() => {
     const category = this.selectedCategory();
@@ -47,3 +62,4 @@ export class Portfolio {
     this.selectedCategory.set(category);
   }
 }
+

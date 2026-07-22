@@ -1,7 +1,7 @@
 <header class="navbar" [class.scrolled]="isScrolled">
   <div class="navbar-container container">
     <!-- Brand Logo -->
-    <a routerLink="/" class="brand-logo" (click)="closeMobileMenu()">
+    <a [routerLink]="['/', translationService.currentLang()]" class="brand-logo" (click)="closeMobileMenu()">
       <img src="9.png" alt="Blue Fox Global Group" class="logo-icon">
       <span class="brand-text">
         <span class="brand-blue">BLUE FOX</span>
@@ -11,12 +11,12 @@
 
     <!-- Desktop Navigation Links -->
     <nav class="nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ translationService.currentContent().nav.home }}</a>
-      <a routerLink="/about" routerLinkActive="active">{{ translationService.currentContent().nav.about }}</a>
-      <a routerLink="/portfolio" routerLinkActive="active">{{ translationService.currentContent().nav.portfolio }}</a>
-      <a routerLink="/founder" routerLinkActive="active">{{ translationService.currentContent().nav.founder }}</a>
-      <a routerLink="/news" routerLinkActive="active">{{ translationService.currentContent().nav.news }}</a>
-      <a routerLink="/contact" routerLinkActive="active">{{ translationService.currentContent().nav.contact }}</a>
+      <a [routerLink]="['/', translationService.currentLang()]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ translationService.currentContent().nav.home }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'about']" routerLinkActive="active">{{ translationService.currentContent().nav.about }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'portfolio']" routerLinkActive="active">{{ translationService.currentContent().nav.portfolio }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'founder']" routerLinkActive="active">{{ translationService.currentContent().nav.founder }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'news']" routerLinkActive="active">{{ translationService.currentContent().nav.news }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'contact']" routerLinkActive="active">{{ translationService.currentContent().nav.contact }}</a>
     </nav>
 
     <!-- Language Selector & Mobile Toggle -->
@@ -46,12 +46,12 @@
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" [class.show]="isMobileMenuOpen">
     <nav class="mobile-nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.home }}</a>
-      <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.about }}</a>
-      <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.portfolio }}</a>
-      <a routerLink="/founder" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.founder }}</a>
-      <a routerLink="/news" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.news }}</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.contact }}</a>
+      <a [routerLink]="['/', translationService.currentLang()]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.home }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'about']" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.about }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'portfolio']" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.portfolio }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'founder']" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.founder }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'news']" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.news }}</a>
+      <a [routerLink]="['/', translationService.currentLang(), 'contact']" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.contact }}</a>
     </nav>
   </div>
 </header>
