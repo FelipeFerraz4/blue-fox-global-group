@@ -1,10 +1,12 @@
 services:
   blue-fox-app:
+    container_name: blue-fox-global-group
+    restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: blue-fox-global-group-ssr
-    restart: unless-stopped
+    expose:
+      - "4000"
     networks:
       - infra-net
 
