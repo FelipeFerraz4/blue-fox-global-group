@@ -4,12 +4,12 @@ import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
-  selector: 'app-governance',
+  selector: 'app-founder',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './governance.html',
-  styleUrl: './governance.css'
+  templateUrl: './founder.html',
+  styleUrl: './founder.css'
 })
-export class Governance {
+export class FounderComponent {
   protected readonly translationService = inject(TranslationService);
 }

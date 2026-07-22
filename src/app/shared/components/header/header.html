@@ -1,49 +1,35 @@
-<header class="navbar">
+<header class="navbar" [class.scrolled]="isScrolled">
   <div class="navbar-container container">
     <!-- Brand Logo -->
-    <a href="#" class="brand-logo" (click)="scrollToSection('hero'); $event.preventDefault();">
-      <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Geometric Fox Head -->
-        <polygon points="50,15 15,45 25,75 50,60" fill="url(#brandGrad)" />
-        <polygon points="50,15 85,45 75,75 50,60" fill="url(#brandGradDark)" />
-        <polygon points="50,60 25,75 50,90 75,75" fill="#38b6ff" opacity="0.8" />
-        <defs>
-          <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38b6ff" />
-            <stop offset="100%" stop-color="#004aad" />
-          </linearGradient>
-          <linearGradient id="brandGradDark" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#004aad" />
-            <stop offset="100%" stop-color="#002b66" />
-          </linearGradient>
-        </defs>
-      </svg>
+    <a routerLink="/" class="brand-logo" (click)="closeMobileMenu()">
+      <img src="9.png" alt="Blue Fox Global Group" class="logo-icon">
       <span class="brand-text">
         <span class="brand-blue">BLUE FOX</span>
-        <span class="brand-white">GLOBAL</span>
+        <span class="brand-sub">GLOBAL GROUP</span>
       </span>
     </a>
 
     <!-- Desktop Navigation Links -->
     <nav class="nav-links">
-      <a href="#about" (click)="scrollToSection('about'); $event.preventDefault();">{{ translationService.currentContent().nav.about }}</a>
-      <a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">{{ translationService.currentContent().nav.portfolio }}</a>
-      <a href="#governance" (click)="scrollToSection('governance'); $event.preventDefault();">{{ translationService.currentContent().nav.governance }}</a>
-      <a href="#news" (click)="scrollToSection('news'); $event.preventDefault();">{{ translationService.currentContent().nav.news }}</a>
-      <a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault();">{{ translationService.currentContent().nav.contact }}</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ translationService.currentContent().nav.home }}</a>
+      <a routerLink="/about" routerLinkActive="active">{{ translationService.currentContent().nav.about }}</a>
+      <a routerLink="/portfolio" routerLinkActive="active">{{ translationService.currentContent().nav.portfolio }}</a>
+      <a routerLink="/founder" routerLinkActive="active">{{ translationService.currentContent().nav.founder }}</a>
+      <a routerLink="/news" routerLinkActive="active">{{ translationService.currentContent().nav.news }}</a>
+      <a routerLink="/contact" routerLinkActive="active">{{ translationService.currentContent().nav.contact }}</a>
     </nav>
 
     <!-- Language Selector & Mobile Toggle -->
     <div class="nav-actions">
       <!-- Language Switcher Pill -->
       <div class="lang-switch-container">
-        <button 
-          class="lang-btn" 
+        <button
+          class="lang-btn"
           [class.active]="translationService.currentLang() === 'pt'"
           (click)="translationService.setLanguage('pt')">PT</button>
         <span class="lang-divider">|</span>
-        <button 
-          class="lang-btn" 
+        <button
+          class="lang-btn"
           [class.active]="translationService.currentLang() === 'en'"
           (click)="translationService.setLanguage('en')">EN</button>
       </div>
@@ -60,11 +46,12 @@
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" [class.show]="isMobileMenuOpen">
     <nav class="mobile-nav-links">
-      <a href="#about" (click)="scrollToSection('about'); $event.preventDefault();">{{ translationService.currentContent().nav.about }}</a>
-      <a href="#portfolio" (click)="scrollToSection('portfolio'); $event.preventDefault();">{{ translationService.currentContent().nav.portfolio }}</a>
-      <a href="#governance" (click)="scrollToSection('governance'); $event.preventDefault();">{{ translationService.currentContent().nav.governance }}</a>
-      <a href="#news" (click)="scrollToSection('news'); $event.preventDefault();">{{ translationService.currentContent().nav.news }}</a>
-      <a href="#contact" (click)="scrollToSection('contact'); $event.preventDefault();">{{ translationService.currentContent().nav.contact }}</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.home }}</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.about }}</a>
+      <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.portfolio }}</a>
+      <a routerLink="/founder" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.founder }}</a>
+      <a routerLink="/news" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.news }}</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">{{ translationService.currentContent().nav.contact }}</a>
     </nav>
   </div>
 </header>

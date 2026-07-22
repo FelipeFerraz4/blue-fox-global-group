@@ -1,13 +1,33 @@
 .news-section {
   background: var(--color-bg);
   position: relative;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-size: 2.75rem;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
 }
 
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 4rem;
 }
 
 .article-card {
@@ -15,6 +35,18 @@
   flex-direction: column;
   height: 100%;
   padding: 2.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 74, 173, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 74, 173, 0.05);
+  transition: all var(--transition-speed) ease;
+}
+
+.article-card:hover {
+  background: #f4f8fd;
+  border-color: rgba(56, 182, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 74, 173, 0.12);
+  transform: translateY(-4px);
 }
 
 .article-header {
@@ -34,11 +66,11 @@
   font-size: 0.7rem;
   font-family: var(--font-headers);
   font-weight: 700;
-  color: var(--color-brand-light);
+  color: var(--color-brand-dark);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.2rem 0.65rem;
-  background: rgba(56, 182, 255, 0.04);
+  background: var(--color-bg-blue);
   border: 1px solid rgba(56, 182, 255, 0.15);
   border-radius: 4px;
 }
@@ -46,7 +78,7 @@
 .article-title {
   font-size: 1.25rem;
   font-family: var(--font-headers);
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   line-height: 1.4;
   font-weight: 700;
@@ -54,7 +86,7 @@
 }
 
 .article-card:hover .article-title {
-  color: var(--color-brand-light);
+  color: var(--color-brand-dark);
 }
 
 .article-summary {
@@ -69,7 +101,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--color-border);
   padding-top: 1.25rem;
   margin-top: auto;
 }
@@ -77,25 +109,6 @@
 .read-time {
   font-size: 0.8rem;
   color: var(--color-text-muted);
-}
-
-.article-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-family: var(--font-headers);
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--color-brand-light);
-  padding: 0;
-}
-
-.article-link svg {
-  transition: transform var(--transition-speed) ease;
-}
-
-.article-link:hover svg {
-  transform: translateX(3px);
 }
 
 /* Responsiveness */

@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -20,16 +21,15 @@ export class Home implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.animateCounters();
     } else {
-      // Server-side default static values
-      this.animatedStats.set(['4+', '15+', '$500M+', '250+']);
+      this.animatedStats.set(['1', '2026', '2', '1']);
     }
   }
 
   private animateCounters() {
-    const targets = [4, 15, 500, 250];
+    const targets = [1, 2026, 2, 1];
     const current = [0, 0, 0, 0];
     const steps = 60;
-    const duration = 1500; // 1.5s
+    const duration = 1500;
     const intervalTime = duration / steps;
     let step = 0;
 
@@ -41,31 +41,30 @@ export class Home implements OnInit {
       }
 
       this.animatedStats.set([
-        `${current[0]}+`,
-        `${current[1]}+`,
-        `$${current[2]}M+`,
-        `${current[3]}+`
+        `${current[0]}`,
+        `${current[1]}`,
+        `${current[2]}`,
+        `${current[3]}`
       ]);
 
       if (step >= steps) {
         clearInterval(timer);
-        // Ensure exact target strings at the end
-        this.animatedStats.set(['4+', '15+', '$500M+', '250+']);
+        this.animatedStats.set(['1', '2026', '2', '1']);
       }
     }, intervalTime);
   }
 
-  scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+  getStatusClass(status: string): string {
+    switch (status) {
+      case 'active': return 'status-active';
+      case 'soon': return 'status-soon';
+      case 'future': return 'status-future';
+      default: return '';
     }
+  }
+
+  getStatusLabel(status: string): string {
+    const labels = this.translationService.currentContent().portfolio.statusLabels;
+    return (labels as Record<string, string>)[status] || status;
   }
 }

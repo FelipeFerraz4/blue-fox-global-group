@@ -1,32 +1,32 @@
 <!-- Hero Section -->
 <section id="hero" class="hero-section">
-  <div class="radial-glow-1"></div>
+  <div class="hero-bg-decoration"></div>
+  <div class="hero-bg-circles"></div>
   <div class="container hero-container">
     <div class="hero-content animated-fade-in">
       <span class="section-badge">{{ translationService.currentContent().home.hero.badge }}</span>
       <h1 class="hero-title">
-        <span class="text-white">Blue Fox Global Group</span><br>
+        <span class="text-dark">Blue Fox</span><br>
         <span class="glow-text-gradient">{{ translationService.currentContent().home.hero.title }}</span>
       </h1>
       <p class="hero-subtitle">
         {{ translationService.currentContent().home.hero.subtitle }}
       </p>
       <div class="hero-actions">
-        <button class="btn btn-primary" (click)="scrollToSection('portfolio')">
+        <a routerLink="/portfolio" class="btn btn-primary">
           {{ translationService.currentContent().home.hero.ctaPrimary }}
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </button>
-        <button class="btn btn-secondary" (click)="scrollToSection('contact')">
+        </a>
+        <a routerLink="/contact" class="btn btn-secondary">
           {{ translationService.currentContent().home.hero.ctaSecondary }}
-        </button>
+        </a>
       </div>
     </div>
 
     <!-- Stats Grid -->
     <div class="stats-grid animated-fade-in">
       @for (stat of translationService.currentContent().home.hero.stats; track $index) {
-        <div class="stat-card glass-card">
-          <div class="stat-glow"></div>
+        <div class="stat-card">
           <h3 class="stat-value">{{ animatedStats()[$index] }}</h3>
           <p class="stat-label">{{ stat.label }}</p>
         </div>
@@ -35,9 +35,8 @@
   </div>
 </section>
 
-<!-- About / Vision Section -->
+<!-- About / Vision Section Preview -->
 <section id="about" class="about-section">
-  <div class="radial-glow-2"></div>
   <div class="container">
     <div class="section-header">
       <span class="section-badge">{{ translationService.currentContent().home.about.title }}</span>
@@ -50,10 +49,10 @@
       @for (pillar of translationService.currentContent().home.about.pillars; track pillar.title) {
         <div class="pillar-card glass-card">
           <div class="pillar-icon-container">
-            @if (pillar.icon === 'trending-up') {
-              <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-            } @else if (pillar.icon === 'globe') {
-              <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            @if (pillar.icon === 'code') {
+              <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            } @else if (pillar.icon === 'book') {
+              <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             } @else if (pillar.icon === 'cpu') {
               <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
             }
@@ -62,6 +61,99 @@
           <p class="pillar-desc">{{ pillar.description }}</p>
         </div>
       }
+    </div>
+
+    <div class="section-cta">
+      <a routerLink="/about" class="section-link">
+        {{ translationService.currentLang() === 'pt' ? 'Conhecer o Fundador' : 'Meet the Founder' }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Preview -->
+<section id="portfolio-preview" class="portfolio-preview-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Portfólio' : 'Portfolio' }}</span>
+      <h2 class="section-title">{{ translationService.currentContent().portfolio.title }}</h2>
+      <p class="section-subtitle">{{ translationService.currentContent().portfolio.subtitle }}</p>
+    </div>
+
+    <div class="portfolio-preview-grid">
+      @for (company of translationService.currentContent().portfolio.companies; track company.id) {
+        <div class="preview-card glass-card">
+          <div class="preview-card-header">
+            <span class="status-badge" [ngClass]="getStatusClass(company.status)">
+              <span class="status-dot"></span>
+              {{ getStatusLabel(company.status) }}
+            </span>
+          </div>
+          <h3 class="preview-card-title">{{ company.name }}</h3>
+          <p class="preview-card-tagline">{{ company.tagline }}</p>
+          <p class="preview-card-desc">{{ company.description }}</p>
+          @if (company.status === 'active' && company.website !== '#') {
+            <a [href]="company.website" target="_blank" rel="noopener noreferrer" class="btn-text preview-card-link">
+              {{ translationService.currentLang() === 'pt' ? 'Visitar' : 'Visit' }}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="section-cta">
+      <a routerLink="/portfolio" class="section-link">
+        {{ translationService.currentLang() === 'pt' ? 'Ver todos os projetos' : 'View all projects' }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- News Preview -->
+<section id="news-preview" class="news-preview-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Notícias' : 'News' }}</span>
+      <h2 class="section-title">{{ translationService.currentContent().news.title }}</h2>
+    </div>
+
+    <div class="news-preview-grid">
+      @for (article of translationService.currentContent().news.articles.slice(0, 2); track article.id) {
+        <article class="news-preview-card glass-card">
+          <div class="news-preview-header">
+            <span class="news-date">{{ article.date }}</span>
+            <span class="news-category">{{ article.category }}</span>
+          </div>
+          <h3 class="news-preview-title">{{ article.title }}</h3>
+          <p class="news-preview-summary">{{ article.summary }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="section-cta">
+      <a routerLink="/news" class="section-link">
+        {{ translationService.currentLang() === 'pt' ? 'Ver todas as notícias' : 'View all news' }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Partnership CTA -->
+<section id="partnership" class="partnership-section">
+  <div class="container">
+    <div class="partnership-card">
+      <div class="partnership-content">
+        <h2 class="partnership-title">{{ translationService.currentContent().home.partnership.title }}</h2>
+        <p class="partnership-desc">{{ translationService.currentContent().home.partnership.description }}</p>
+        <a routerLink="/contact" class="btn btn-primary">
+          {{ translationService.currentContent().home.partnership.cta }}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

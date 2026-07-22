@@ -1,48 +1,57 @@
 export const portfolioContent = {
-  title: 'Our Portfolio',
-  subtitle: 'Discover the leading enterprises that form the Blue Fox Global Group ecosystem.',
+  title: 'Our Projects',
+  subtitle: 'Discover the projects that form the Blue Fox Global Group ecosystem.',
   filterAll: 'All',
+  statusLabels: {
+    active: 'Active',
+    soon: 'Coming Soon',
+    future: 'Future'
+  },
   categories: {
-    tech: 'Technology',
-    energy: 'Energy',
-    logistics: 'Logistics',
-    ventures: 'Venture Capital'
+    content: 'Content',
+    tools: 'Tools',
+    games: 'Games & Apps',
+    ai: 'Artificial Intelligence'
   },
   companies: [
     {
-      id: 'blue-fox-tech',
-      name: 'Blue Fox Tech',
-      tagline: 'Artificial Intelligence & Enterprise SaaS',
-      category: 'tech',
-      description: 'Development of scalable enterprise solutions with a focus on AI-driven automation and predictive cloud data analytics.',
-      highlightMetric: '5M+ Active Users',
+      id: 'blue-fox-aquarismo',
+      name: 'Blue Fox Aquarismo',
+      tagline: 'Blog & Tools for Aquarists',
+      category: 'content',
+      status: 'active',
+      description: 'A comprehensive blog about aquaristics with educational content, practical guides, and useful tools for aquarists of all levels. Revenue comes from ads, keeping all content free for the community.',
+      highlightMetric: 'Online & Active',
+      website: 'https://bluefoxaquarismo.space/'
+    },
+    {
+      id: 'blue-fox-games',
+      name: 'Blue Fox Games & Apps',
+      tagline: 'Games and Applications for Multiple Platforms',
+      category: 'games',
+      status: 'soon',
+      description: 'Development and publishing of indie games and useful apps/tools for web and mobile, combining creativity with modern technology.',
+      highlightMetric: 'In Development',
       website: '#'
     },
     {
-      id: 'blue-fox-energy',
-      name: 'Blue Fox Energy',
-      tagline: 'Energy Transition Infrastructure',
-      category: 'energy',
-      description: 'Generation and distribution of 100% renewable energy, smart grid infrastructure, and advanced battery storage solutions.',
-      highlightMetric: '1.2GW Capacity',
+      id: 'blue-fox-youtube',
+      name: 'Blue Fox on YouTube',
+      tagline: 'Tech & Innovation Content Channel',
+      category: 'content',
+      status: 'soon',
+      description: 'YouTube channel with content about technology, programming, aquaristics, and creative projects. Sharing knowledge and experiences in video format.',
+      highlightMetric: 'In Planning',
       website: '#'
     },
     {
-      id: 'blue-fox-logistics',
-      name: 'Blue Fox Logistics',
-      tagline: 'Intelligent Supply Chain',
-      category: 'logistics',
-      description: 'Intermodal freight operations and global logistics management powered by smart routing algorithms to reduce carbon footprint.',
-      highlightMetric: '48h Global Delivery',
-      website: '#'
-    },
-    {
-      id: 'blue-fox-ventures',
-      name: 'Blue Fox Ventures',
-      tagline: 'Disruptive Startup Accelerator',
-      category: 'ventures',
-      description: 'Venture capital fund focused on early-stage investments (Seed and Series A) in biotech, fintech, and Web3 startups.',
-      highlightMetric: '30+ Active Portfolio Startups',
+      id: 'blue-fox-ai',
+      name: 'Blue Fox AI',
+      tagline: 'Intelligent System with Chat and AI Tools',
+      category: 'ai',
+      status: 'future',
+      description: 'Platform with integrated artificial intelligence, including smart chat, productivity tools, and automations that simplify users\' daily lives.',
+      highlightMetric: 'Future Vision',
       website: '#'
     }
   ]

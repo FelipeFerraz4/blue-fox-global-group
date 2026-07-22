@@ -1,17 +1,33 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, PLATFORM_ID, OnInit, HostListener } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header {
+export class Header implements OnInit {
   protected readonly translationService = inject(TranslationService);
+  private readonly platformId = inject(PLATFORM_ID);
   protected isMobileMenuOpen = false;
+  protected isScrolled = false;
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScroll();
+    }
+  }
+
+  @HostListener('window:scroll')
+  checkScroll() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isScrolled = window.scrollY > 20;
+    }
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -19,20 +35,5 @@ export class Header {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
-  }
-
-  scrollToSection(sectionId: string) {
-    this.closeMobileMenu();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
   }
 }

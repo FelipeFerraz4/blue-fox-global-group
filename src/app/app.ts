@@ -1,27 +1,33 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Header } from './shared/components/header/header';
-import { Home } from './features/home/home';
-import { Portfolio } from './features/portfolio/portfolio';
-import { Governance } from './features/governance/governance';
-import { News } from './features/news/news';
-import { Contact } from './features/contact/contact';
 import { Footer } from './shared/components/footer/footer';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
+    RouterOutlet,
     Header,
-    Home,
-    Portfolio,
-    Governance,
-    News,
-    Contact,
     Footer
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Blue Fox Global Group');
+  private readonly router = inject(Router);
+  private readonly platformId = inject(PLATFORM_ID);
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      });
+    }
+  }
 }

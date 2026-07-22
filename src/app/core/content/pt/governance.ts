@@ -1,38 +1,45 @@
 export const governanceContent = {
-  title: 'Governança & Liderança',
-  subtitle: 'Comprometidos com a transparência, integridade e criação de valor sustentável a longo prazo.',
-  description: 'Acreditamos que uma governança corporativa sólida é a base para o sucesso sustentável. Nossos comitês de ética, auditoria e estratégia garantem que todas as decisões do Blue Fox Global Group estejam alinhadas com as melhores práticas de governança e sustentabilidade (ESG).',
-  teamTitle: 'Conselho Executivo',
-  team: [
-    {
-      name: 'Felipe Ferraz',
-      role: 'Fundador & Diretor Executivo (CEO)',
-      bio: 'Líder estratégico com ampla experiência em inovação tecnológica, estruturação de M&A e investimentos globais de venture capital.'
-    },
-    {
-      name: 'Sarah Jenkins',
-      role: 'Diretora Financeira (CFO)',
-      bio: 'Ex-diretora de investimentos em Wall Street, especialista em alocação de ativos e estratégias financeiras internacionais.'
-    },
-    {
-      name: 'Marcus Vance',
-      role: 'Diretor de Operações (COO)',
-      bio: 'Profissional com mais de 15 anos liderando expansões logísticas internacionais e reestruturação operacional de grandes holdings.'
-    }
-  ],
-  principlesTitle: 'Nossos Princípios',
+  title: 'Sobre a Blue Fox Global Group',
+  subtitle: 'Uma holding pessoal construída com dedicação, transparência e visão de longo prazo.',
+  description: 'A Blue Fox Global Group é uma holding pessoal focada em tecnologia, conteúdo digital e inovação. Acreditamos que grandes projetos começam com passos consistentes. Cada decisão é tomada com foco em qualidade, sustentabilidade e crescimento orgânico.',
+  companyInfo: {
+    title: 'Empresa Individual',
+    description: 'A Blue Fox Global Group opera atualmente como uma empresa individual fundada por Felipe Ferraz. Atuamos com foco no Brasil e Estados Unidos, atendendo também países de língua portuguesa, inglesa e espanhola. Nossos projetos são desenvolvidos com paixão por tecnologia e foco na excelência.'
+  },
+  principlesTitle: 'Nossos Valores',
   principles: [
     {
-      title: 'Transparência Total',
-      description: 'Prestação de contas regular e relatórios financeiros claros para todos os nossos investidores e parceiros comerciais.'
+      title: 'Transparência',
+      description: 'Somos honestos sobre onde estamos e para onde vamos. Cada projeto mostra claramente seu status: ativo, em desenvolvimento ou planejado.'
     },
     {
-      title: 'Responsabilidade Socioambiental',
-      description: 'Todas as empresas sob nossa gestão devem adotar ativamente metas de redução de carbono e inclusão social.'
+      title: 'Qualidade sobre Quantidade',
+      description: 'Preferimos fazer poucos projetos bem feitos do que muitos projetos medíocres. Cada entrega reflete nosso compromisso com a excelência.'
     },
     {
-      title: 'Alocação Eficiente',
-      description: 'Gestão rigorosa de capital com foco em inovações que transformam indústrias e protegem o patrimônio.'
+      title: 'Crescimento Orgânico',
+      description: 'Crescemos no nosso ritmo, reinvestindo em cada projeto e aprendendo com cada passo. Sem pressa, mas sem parar.'
+    }
+  ],
+  roadmapTitle: 'Roadmap de Evolução',
+  roadmap: [
+    {
+      year: '2026',
+      title: 'Fundação & Primeiro Projeto',
+      description: 'Criação da Blue Fox Global Group e lançamento oficial do Blue Fox Aquarismo como primeiro projeto ativo.',
+      status: 'done'
+    },
+    {
+      year: '2026 - 2027',
+      title: 'Expansão de Conteúdo & Ferramentas',
+      description: 'Lançamento do canal no YouTube e desenvolvimento de aplicativos e ferramentas práticas.',
+      status: 'current'
+    },
+    {
+      year: '2027+',
+      title: 'Sistemas com Inteligência Artificial',
+      description: 'Desenvolvimento de ecossistema com IA, assistentes inteligentes e automações corporativas.',
+      status: 'planned'
     }
   ]
 };

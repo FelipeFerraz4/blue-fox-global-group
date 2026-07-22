@@ -1,29 +1,170 @@
-.governance-section {
-  background: linear-gradient(180deg, var(--color-bg) 0%, rgba(14, 19, 38, 0.5) 100%);
+.about-page-section {
+  background: linear-gradient(180deg, #f0f6fc 0%, #ffffff 100%);
   position: relative;
+  padding-top: 8rem;
 }
 
-.governance-intro {
+.page-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-size: 2.75rem;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}
+
+.about-intro {
   max-width: 840px;
   margin: 0 auto 4rem auto;
   text-align: center;
   padding: 2rem 2.5rem;
 }
 
-.governance-intro p {
+.about-intro p {
   font-size: 1.1rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
+/* Company Info Card */
+.company-info-card {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 840px;
+  margin: 0 auto 5rem auto;
+  padding: 2.5rem;
+  background: var(--color-bg-blue);
+  border: 1px solid rgba(56, 182, 255, 0.15);
+  border-radius: 16px;
+}
+
+.company-info-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(56, 182, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.company-info-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-brand-dark);
+}
+
+.company-info-text h3 {
+  font-size: 1.35rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.company-info-text p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
 .subsection-title {
   font-size: 1.75rem;
   font-family: var(--font-headers);
-  color: #ffffff;
+  color: var(--color-text-primary);
   text-align: center;
   margin-bottom: 3rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+}
+
+/* Founder */
+.founder-section {
+  margin-bottom: 5rem;
+}
+
+.founder-card {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.founder-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-initials {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-family: var(--font-headers);
+  font-weight: 900;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.founder-name {
+  font-size: 1.75rem;
+  font-family: var(--font-headers);
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.founder-role {
+  font-size: 0.9rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.founder-bio {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.founder-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-brand-dark);
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
+}
+
+.founder-linkedin:hover {
+  color: var(--color-brand-light);
 }
 
 /* Principles */
@@ -40,26 +181,27 @@
 .principle-card {
   display: flex;
   padding: 1.75rem;
-  background: rgba(13, 17, 39, 0.4);
+  background: var(--color-card-bg);
   border-left: 3px solid var(--color-brand-light);
   border-radius: 0 12px 12px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.02);
-  border-right: 1px solid rgba(255, 255, 255, 0.02);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .principle-card:hover {
-  background: rgba(13, 17, 39, 0.7);
+  background: var(--color-bg-blue);
   transform: translateX(4px);
-  border-left-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-left-color: var(--color-brand-dark);
+  box-shadow: var(--shadow-md);
 }
 
 .principle-name {
   font-size: 1.15rem;
   font-family: var(--font-headers);
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -70,76 +212,100 @@
   line-height: 1.6;
 }
 
-/* Executive Team */
-.team-container {
-  margin-top: 5rem;
+/* Roadmap Timeline */
+.roadmap-container {
+  margin-bottom: 4rem;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.team-card {
-  text-align: center;
-  padding: 3rem 1.75rem;
+.roadmap-timeline {
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0;
 }
 
-.avatar-container {
+.roadmap-item {
   display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+  gap: 2rem;
   position: relative;
 }
 
-.avatar-initials {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: var(--gradient-brand);
-  color: #ffffff;
-  font-family: var(--font-headers);
-  font-weight: 900;
-  font-size: 1.85rem;
+.roadmap-marker {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-glow);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  transition: all var(--transition-speed) ease;
+  flex-shrink: 0;
+  width: 24px;
 }
 
-.team-card:hover .avatar-initials {
-  transform: scale(1.08) rotate(3deg);
-  box-shadow: var(--shadow-glow-strong);
+.roadmap-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  border: 3px solid var(--color-brand-light);
+  z-index: 1;
+  flex-shrink: 0;
 }
 
-.member-name {
-  font-size: 1.35rem;
+.roadmap-done .roadmap-dot {
+  background: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  box-shadow: 0 0 8px rgba(0, 74, 173, 0.3);
+}
+
+.roadmap-current .roadmap-dot {
+  background: var(--color-brand-light);
+  border-color: var(--color-brand-light);
+  box-shadow: 0 0 12px rgba(56, 182, 255, 0.4);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.roadmap-line {
+  width: 2px;
+  flex-grow: 1;
+  background: var(--color-border);
+  min-height: 2rem;
+}
+
+.roadmap-item:last-child .roadmap-line {
+  display: none;
+}
+
+.roadmap-content {
+  margin-bottom: 2rem;
+  padding: 1.75rem;
+  flex-grow: 1;
+}
+
+.roadmap-year {
+  font-size: 0.8rem;
   font-family: var(--font-headers);
-  color: #ffffff;
-  margin-bottom: 0.35rem;
   font-weight: 700;
-}
-
-.member-role {
-  font-size: 0.85rem;
-  font-family: var(--font-headers);
-  font-weight: 700;
-  color: var(--color-brand-light);
-  margin-bottom: 1.25rem;
+  color: var(--color-brand-dark);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.member-bio {
-  font-size: 0.9rem;
+.roadmap-title {
+  font-size: 1.2rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0.5rem 0;
+}
+
+.roadmap-desc {
+  font-size: 0.92rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 /* Responsiveness */
@@ -148,19 +314,23 @@
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-@media (max-width: 680px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+@media (max-width: 768px) {
+  .founder-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
   }
-  
-  .governance-intro {
+
+  .company-info-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-intro {
     padding: 1.5rem;
   }
 }

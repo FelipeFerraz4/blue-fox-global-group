@@ -1,43 +1,37 @@
 <section id="portfolio" class="portfolio-section">
   <div class="container">
-    <!-- Header -->
-    <div class="section-header">
+    <!-- Hero -->
+    <div class="page-hero">
       <span class="section-badge">{{ translationService.currentLang() === 'pt' ? 'Portfólio' : 'Portfolio' }}</span>
-      <h2 class="section-title">{{ translationService.currentContent().portfolio.title }}</h2>
-      <p class="section-subtitle">{{ translationService.currentContent().portfolio.subtitle }}</p>
+      <h1 class="page-title">{{ translationService.currentContent().portfolio.title }}</h1>
+      <p class="page-subtitle">{{ translationService.currentContent().portfolio.subtitle }}</p>
     </div>
 
     <!-- Category Filters -->
     <div class="filters-container">
-      <button 
-        class="filter-btn" 
+      <button
+        class="filter-btn"
         [class.active]="selectedCategory() === 'all'"
         (click)="setCategory('all')">
         {{ translationService.currentContent().portfolio.filterAll }}
       </button>
-      <button 
-        class="filter-btn" 
-        [class.active]="selectedCategory() === 'tech'"
-        (click)="setCategory('tech')">
-        {{ translationService.currentContent().portfolio.categories.tech }}
+      <button
+        class="filter-btn"
+        [class.active]="selectedCategory() === 'content'"
+        (click)="setCategory('content')">
+        {{ translationService.currentContent().portfolio.categories.content }}
       </button>
-      <button 
-        class="filter-btn" 
-        [class.active]="selectedCategory() === 'energy'"
-        (click)="setCategory('energy')">
-        {{ translationService.currentContent().portfolio.categories.energy }}
+      <button
+        class="filter-btn"
+        [class.active]="selectedCategory() === 'games'"
+        (click)="setCategory('games')">
+        {{ translationService.currentContent().portfolio.categories.games }}
       </button>
-      <button 
-        class="filter-btn" 
-        [class.active]="selectedCategory() === 'logistics'"
-        (click)="setCategory('logistics')">
-        {{ translationService.currentContent().portfolio.categories.logistics }}
-      </button>
-      <button 
-        class="filter-btn" 
-        [class.active]="selectedCategory() === 'ventures'"
-        (click)="setCategory('ventures')">
-        {{ translationService.currentContent().portfolio.categories.ventures }}
+      <button
+        class="filter-btn"
+        [class.active]="selectedCategory() === 'ai'"
+        (click)="setCategory('ai')">
+        {{ translationService.currentContent().portfolio.categories.ai }}
       </button>
     </div>
 
@@ -45,22 +39,33 @@
     <div class="portfolio-grid">
       @for (company of filteredCompanies(); track company.id) {
         <div class="company-card glass-card animated-fade-in" [attr.data-category]="company.category">
-          <div class="card-glow-effect"></div>
           <div class="company-header">
+            <span class="status-badge" [ngClass]="getStatusClass(company.status)">
+              <span class="status-dot"></span>
+              {{ getStatusLabel(company.status) }}
+            </span>
             <span class="category-tag" [ngClass]="company.category">
               {{ getCategoryLabel(company.category) }}
             </span>
-            <span class="metric-badge">{{ company.highlightMetric }}</span>
           </div>
           <h3 class="company-title">{{ company.name }}</h3>
           <h4 class="company-tagline">{{ company.tagline }}</h4>
           <p class="company-desc">{{ company.description }}</p>
-          
+          <div class="company-metric">
+            <span class="metric-badge">{{ company.highlightMetric }}</span>
+          </div>
+
           <div class="company-footer">
-            <a href="#" class="btn-text company-link" (click)="$event.preventDefault();">
-              {{ translationService.currentLang() === 'pt' ? 'Visitar Website' : 'Visit Website' }}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
+            @if (company.status === 'active' && company.website !== '#') {
+              <a [href]="company.website" target="_blank" rel="noopener noreferrer" class="btn-text company-link">
+                {{ translationService.currentLang() === 'pt' ? 'Visitar Website' : 'Visit Website' }}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            } @else {
+              <span class="company-coming-soon">
+                {{ company.highlightMetric }}
+              </span>
+            }
           </div>
         </div>
       }

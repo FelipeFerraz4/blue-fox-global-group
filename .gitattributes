@@ -1,0 +1,14 @@
+# Auto detect text files and perform LF normalization on commit
+* text=auto
+
+# Explicitly declare text files to use LF line endings in repository
+*.ts text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Denote binary files which should not be modified
+*.png binary
+*.jpg binary
+*.ico binary

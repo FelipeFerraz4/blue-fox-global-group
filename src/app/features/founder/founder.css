@@ -1,0 +1,286 @@
+.founder-page-section {
+  background: linear-gradient(180deg, #f0f6fc 0%, #ffffff 100%);
+  position: relative;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-size: 2.75rem;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}
+
+.subsection-title {
+  font-size: 1.75rem;
+  font-family: var(--font-headers);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Founder Card */
+.founder-card {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+  padding: 3rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 74, 173, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 74, 173, 0.08);
+}
+
+.founder-avatar {
+  flex-shrink: 0;
+}
+
+.founder-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(56, 182, 255, 0.35);
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  transition: all var(--transition-speed) ease;
+}
+
+.founder-card:hover .founder-img {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(56, 182, 255, 0.5);
+}
+
+.founder-name {
+  font-size: 2rem;
+  font-family: var(--font-headers);
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+  font-weight: 800;
+}
+
+.founder-role {
+  font-size: 0.9rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.founder-bio {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.founder-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-brand-dark);
+  font-family: var(--font-headers);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  background: var(--color-bg-blue);
+  border: 1px solid rgba(56, 182, 255, 0.2);
+  border-radius: 30px;
+  transition: all var(--transition-speed) ease;
+}
+
+.founder-linkedin:hover {
+  background: var(--gradient-brand);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(0, 74, 173, 0.2);
+}
+
+/* Education Section */
+.education-section {
+  margin-bottom: 5rem;
+}
+
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.edu-card {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 74, 173, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 74, 173, 0.04);
+  transition: all var(--transition-speed) ease;
+}
+
+.edu-card:hover {
+  background: #f8fbff;
+  border-color: rgba(56, 182, 255, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 8px 30px rgba(0, 74, 173, 0.08);
+}
+
+.edu-icon-container {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-bg-blue);
+  border: 1px solid rgba(56, 182, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edu-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-brand-dark);
+}
+
+.edu-institution {
+  font-size: 1.25rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.edu-degree {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-brand-dark);
+  margin-bottom: 0.5rem;
+}
+
+.edu-period {
+  font-size: 0.85rem;
+  font-family: var(--font-headers);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Awards Section */
+.awards-section {
+  margin-bottom: 5rem;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.award-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 74, 173, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 74, 173, 0.04);
+  transition: all var(--transition-speed) ease;
+}
+
+.award-card:hover {
+  background: #f8fbff;
+  border-color: rgba(56, 182, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 74, 173, 0.1);
+}
+
+.award-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.award-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-headers);
+  font-weight: 800;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
+.award-year {
+  font-size: 0.85rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+}
+
+.award-title {
+  font-size: 1.2rem;
+  font-family: var(--font-headers);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.award-org {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-brand-dark);
+  margin-bottom: 1rem;
+}
+
+.award-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+}
