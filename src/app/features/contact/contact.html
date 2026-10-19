@@ -59,105 +59,22 @@
         </div>
       </div>
 
-      <!-- Column 2: Validated Message Form -->
+      <!-- Column 2: E-mail contact card -->
       <div class="contact-form-col">
-        <div class="form-container-card glass-card">
-
-          <!-- Success Notification Banner -->
-          @if (submitSuccess() === true) {
-            <div class="alert alert-success animated-fade-in">
-              <div class="alert-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              </div>
-              <div class="alert-content">
-                <h4 class="alert-title">{{ translationService.currentContent().contact.form.successTitle }}</h4>
-                <p>{{ translationService.currentContent().contact.form.successMessage }}</p>
-              </div>
-            </div>
-          }
-
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-
-            <!-- Full Name -->
-            <div class="form-group">
-              <label for="name" class="form-label">{{ translationService.currentContent().contact.form.nameLabel }}</label>
-              <input
-                type="text"
-                id="name"
-                formControlName="name"
-                class="form-control"
-                [class.invalid]="isFieldInvalid('name')"
-                [placeholder]="translationService.currentContent().contact.form.namePlaceholder">
-              @if (isFieldInvalid('name')) {
-                <div class="error-msg">{{ translationService.currentContent().contact.form.nameErrorRequired }}</div>
-              }
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-              <label for="email" class="form-label">{{ translationService.currentContent().contact.form.emailLabel }}</label>
-              <input
-                type="email"
-                id="email"
-                formControlName="email"
-                class="form-control"
-                [class.invalid]="isFieldInvalid('email')"
-                [placeholder]="translationService.currentContent().contact.form.emailPlaceholder">
-              @if (isFieldInvalid('email')) {
-                <div class="error-msg">
-                  @if (contactForm.get('email')?.hasError('required')) {
-                    {{ translationService.currentContent().contact.form.emailErrorRequired }}
-                  } @else {
-                    {{ translationService.currentContent().contact.form.emailErrorInvalid }}
-                  }
-                </div>
-              }
-            </div>
-
-            <!-- Subject -->
-            <div class="form-group">
-              <label for="subject" class="form-label">{{ translationService.currentContent().contact.form.subjectLabel }}</label>
-              <input
-                type="text"
-                id="subject"
-                formControlName="subject"
-                class="form-control"
-                [class.invalid]="isFieldInvalid('subject')"
-                [placeholder]="translationService.currentContent().contact.form.subjectPlaceholder">
-              @if (isFieldInvalid('subject')) {
-                <div class="error-msg">{{ translationService.currentContent().contact.form.subjectErrorRequired }}</div>
-              }
-            </div>
-
-            <!-- Message -->
-            <div class="form-group">
-              <label for="message" class="form-label">{{ translationService.currentContent().contact.form.messageLabel }}</label>
-              <textarea
-                id="message"
-                formControlName="message"
-                class="form-control textarea"
-                [class.invalid]="isFieldInvalid('message')"
-                [placeholder]="translationService.currentContent().contact.form.messagePlaceholder"
-                rows="5"></textarea>
-              @if (isFieldInvalid('message')) {
-                <div class="error-msg">{{ translationService.currentContent().contact.form.messageErrorRequired }}</div>
-              }
-            </div>
-
-            <!-- Submit Button -->
-            <button
-              type="submit"
-              class="btn btn-primary btn-submit"
-              [disabled]="isSubmitting()">
-              @if (isSubmitting()) {
-                <span class="spinner"></span>
-                {{ translationService.currentContent().contact.form.submitBtnSending }}
-              } @else {
-                {{ translationService.currentContent().contact.form.submitBtn }}
-              }
-            </button>
-
-          </form>
+        <div class="mail-card glass-card">
+          <div class="mail-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <h3 class="mail-card-title">{{ translationService.currentContent().contact.mailCard.title }}</h3>
+          <p class="mail-card-text">{{ translationService.currentContent().contact.mailCard.description }}</p>
+          <a [href]="mailtoHref()" class="btn btn-primary mail-card-btn">
+            {{ translationService.currentContent().contact.mailCard.button }}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <p class="mail-card-alt">
+            {{ translationService.currentContent().contact.mailCard.or }}
+            <strong>{{ translationService.currentContent().contact.emailValue }}</strong>
+          </p>
         </div>
       </div>
 

@@ -12,25 +12,11 @@ export const contactContent = {
   linkedinUrl: 'https://www.linkedin.com/in/felipeferraz4/',
   reachLabel: 'Atuação',
   reachValue: 'Brasil, Estados Unidos e países de língua portuguesa, inglesa e espanhola.',
-  form: {
-    nameLabel: 'Seu Nome',
-    namePlaceholder: 'Como posso te chamar?',
-    nameErrorRequired: 'O nome é obrigatório.',
-    emailLabel: 'Seu E-mail',
-    emailPlaceholder: 'seuemail@exemplo.com',
-    emailErrorRequired: 'O e-mail é obrigatório.',
-    emailErrorInvalid: 'Formato de e-mail inválido.',
-    subjectLabel: 'Assunto',
-    subjectPlaceholder: 'Ex: Parceria, Projeto, Colaboração, Dúvida',
-    subjectErrorRequired: 'O assunto é obrigatório.',
-    messageLabel: 'Mensagem',
-    messagePlaceholder: 'Conte-me sobre sua ideia ou proposta...',
-    messageErrorRequired: 'A mensagem é obrigatória.',
-    submitBtn: 'Enviar Mensagem',
-    submitBtnSending: 'Enviando...',
-    successTitle: 'Mensagem Enviada!',
-    successMessage: 'Obrigado pelo contato! Vou responder o mais rápido possível.',
-    errorTitle: 'Erro ao enviar',
-    errorMessage: 'Ocorreu um problema ao enviar a mensagem. Por favor, tente novamente.'
+  mailCard: {
+    title: 'Escreva para mim',
+    description: 'Conte sua ideia, proposta ou dúvida por e-mail. Respondo assim que possível.',
+    button: 'Enviar e-mail',
+    subject: 'Contato pelo site da Blue Fox Global Group',
+    or: 'Ou escreva diretamente para'
   }
 };
