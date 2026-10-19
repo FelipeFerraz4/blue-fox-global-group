@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false",
+    "audit:prod": "npm audit --omit=dev --audit-level=high",
     "serve:ssr:blue-fox-global-group": "node dist/blue-fox-global-group/server/server.mjs"
   },
   "prettier": {
@@ -23,6 +25,9 @@
   },
   "private": true,
   "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
+  },
   "dependencies": {
     "@angular/common": "^21.2.25",
     "@angular/compiler": "^21.2.25",
