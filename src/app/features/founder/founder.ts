@@ -23,7 +23,7 @@ export class FounderComponent {
         title: content.title,
         description: content.subtitle,
         url: `https://bluefoxglobalgroup.com/${lang}/founder`,
-        keywords: 'Felipe Ferraz, Fundador, Founder, CEO, Liderança, Empreendedorismo, Blue Fox'
+        keywords: 'Felipe Ferraz, Fundador, Founder, CEO, Liderança, Empreendedorismo, UFPE, Mestrado, Hackathon, Blue Fox'
       });
     });
   }

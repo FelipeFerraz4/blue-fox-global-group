@@ -200,6 +200,15 @@
   margin: 0 auto;
 }
 
+/* Quantidade ímpar de prêmios: centraliza o último card em vez de deixá-lo sozinho à esquerda (só no layout de 2 colunas). */
+@media (min-width: 901px) {
+  .awards-grid .award-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1rem);
+  }
+}
+
 .award-card {
   display: flex;
   flex-direction: column;
