@@ -24,8 +24,8 @@ app.disable('x-powered-by');
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self'",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' https://fonts.gstatic.com",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
   "img-src 'self' data:",
   "connect-src 'self'",
   "object-src 'none'",
@@ -50,9 +50,14 @@ app.use((_req, res, next) => {
 const HASHED_ASSET = /-[A-Za-z0-9]{8}\.(?:js|mjs|css|woff2?)$/;
 
 function cacheControlFor(filePath: string): string {
-  return HASHED_ASSET.test(filePath)
-    ? 'public, max-age=31536000, immutable'
-    : 'public, max-age=3600';
+  if (HASHED_ASSET.test(filePath)) {
+    return 'public, max-age=31536000, immutable';
+  }
+  // Fontes em public/fonts não têm hash: 30 dias (troque o nome do arquivo ao atualizar a fonte).
+  if (filePath.endsWith('.woff2')) {
+    return 'public, max-age=2592000';
+  }
+  return 'public, max-age=3600';
 }
 
 /**
