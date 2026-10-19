@@ -1,0 +1,17 @@
+<section class="not-found-section">
+  <div class="container">
+    <div class="not-found-box">
+      <span class="not-found-code" aria-hidden="true">{{ translationService.currentContent().notFound.code }}</span>
+      <h1 class="not-found-title">{{ translationService.currentContent().notFound.title }}</h1>
+      <p class="not-found-text">{{ translationService.currentContent().notFound.subtitle }}</p>
+      <div class="not-found-actions">
+        <a [routerLink]="['/', translationService.currentLang()]" class="btn btn-primary">
+          {{ translationService.currentContent().notFound.homeCta }}
+        </a>
+        <a [routerLink]="['/', translationService.currentLang(), 'portfolio']" class="btn btn-secondary">
+          {{ translationService.currentContent().notFound.projectsCta }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

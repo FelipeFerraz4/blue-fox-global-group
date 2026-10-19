@@ -12,6 +12,7 @@ import { newsContent as newsPt } from '../content/pt/news';
 
 import { privacyContent as privacyPt } from '../content/pt/privacy';
 import { termsContent as termsPt } from '../content/pt/terms';
+import { notFoundContent as notFoundPt } from '../content/pt/not-found';
 
 import { homeContent as homeEn } from '../content/en/home';
 import { portfolioContent as portfolioEn } from '../content/en/portfolio';
@@ -21,6 +22,7 @@ import { contactContent as contactEn } from '../content/en/contact';
 import { newsContent as newsEn } from '../content/en/news';
 import { privacyContent as privacyEn } from '../content/en/privacy';
 import { termsContent as termsEn } from '../content/en/terms';
+import { notFoundContent as notFoundEn } from '../content/en/not-found';
 
 export type Language = 'pt' | 'en';
 
@@ -53,7 +55,8 @@ export class TranslationService {
       contact: contactPt,
       news: newsPt,
       privacy: privacyPt,
-      terms: termsPt
+      terms: termsPt,
+      notFound: notFoundPt
     },
     en: {
       nav: {
@@ -71,7 +74,8 @@ export class TranslationService {
       contact: contactEn,
       news: newsEn,
       privacy: privacyEn,
-      terms: termsEn
+      terms: termsEn,
+      notFound: notFoundEn
     }
   };
 
