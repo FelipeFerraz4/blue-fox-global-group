@@ -32,6 +32,14 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
+            },
+            "security": {
+              "allowedHosts": [
+                "bluefoxglobalgroup.com",
+                "www.bluefoxglobalgroup.com",
+                "blue-fox-global-group",
+                "localhost"
+              ]
             }
           },
           "configurations": {
