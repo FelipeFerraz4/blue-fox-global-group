@@ -42,7 +42,7 @@
     <div class="roadmap-container">
       <h2 class="subsection-title">{{ translationService.currentContent().governance.roadmapTitle }}</h2>
       <div class="roadmap-timeline">
-        @for (item of translationService.currentContent().governance.roadmap; track item.year) {
+        @for (item of translationService.currentContent().governance.roadmap; track item.title) {
           <div class="roadmap-item" [ngClass]="'roadmap-' + item.status">
             <div class="roadmap-marker">
               <div class="roadmap-dot"></div>

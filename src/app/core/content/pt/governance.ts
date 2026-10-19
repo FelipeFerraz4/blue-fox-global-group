@@ -30,9 +30,21 @@ export const governanceContent = {
       status: 'done'
     },
     {
+      year: '2026',
+      title: 'Ferramentas & Login Único',
+      description: 'Blue Fox Finance entra em produção e nasce o Blue Fox IAM, o login único que une os projetos do grupo.',
+      status: 'done'
+    },
+    {
+      year: '2026',
+      title: 'Jogos Online',
+      description: 'Lançamento do Blue Fox Games com o Jogo da Memória multiplayer, para jogar em tempo real com quem estiver longe.',
+      status: 'done'
+    },
+    {
       year: '2026 - 2027',
-      title: 'Expansão de Conteúdo & Ferramentas',
-      description: 'Lançamento do canal no YouTube e desenvolvimento de aplicativos e ferramentas práticas.',
+      title: 'Expansão de Jogos, Conteúdo & Ferramentas',
+      description: 'Novos jogos single e multiplayer com login e ranking, ferramentas práticas para aquaristas e o canal no YouTube.',
       status: 'current'
     },
     {

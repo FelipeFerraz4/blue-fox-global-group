@@ -30,9 +30,21 @@ export const governanceContent = {
       status: 'done'
     },
     {
+      year: '2026',
+      title: 'Tools & Single Sign-On',
+      description: 'Blue Fox Finance goes into production and Blue Fox IAM is born, the single sign-on that connects the group\'s projects.',
+      status: 'done'
+    },
+    {
+      year: '2026',
+      title: 'Online Games',
+      description: 'Launch of Blue Fox Games with the multiplayer Memory Game, to play in real time with someone far away.',
+      status: 'done'
+    },
+    {
       year: '2026 - 2027',
-      title: 'Content & Tools Expansion',
-      description: 'Launch of YouTube channel and development of practical applications and tools.',
+      title: 'Games, Content & Tools Expansion',
+      description: 'New single and multiplayer games with login and rankings, practical tools for aquarists, and the YouTube channel.',
       status: 'current'
     },
     {
