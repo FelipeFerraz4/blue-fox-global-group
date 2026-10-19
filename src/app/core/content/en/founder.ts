@@ -38,18 +38,18 @@ export const founderContent = {
       badge: '3rd Place'
     },
     {
-      title: 'University Entrepreneur Challenge Winner (Sebrae 2023)',
-      organization: 'SEBRAE',
-      description: 'Member of one of the 6 winning teams in the Sebrae university entrepreneurship challenge in 2023.',
-      year: '2023',
-      badge: '1st Place / Winner'
-    },
-    {
       title: '2nd Place in Mandacaru.dev (Juazeiro Module 2024)',
       organization: 'Mandacaru.dev',
       description: 'Team member taking runner-up in Agile Management, Innovation, and Entrepreneurship.',
       year: '2024',
       badge: '2nd Place'
+    },
+    {
+      title: 'University Entrepreneur Challenge Winner (Sebrae 2023)',
+      organization: 'SEBRAE',
+      description: 'Member of one of the 6 winning teams in the Sebrae university entrepreneurship challenge in 2023.',
+      year: '2023',
+      badge: '1st Place / Winner'
     }
   ]
 };

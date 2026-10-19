@@ -38,18 +38,18 @@ export const founderContent = {
       badge: '3º Lugar'
     },
     {
-      title: 'Vencedor do Desafio Empreendedor Universitário (Sebrae 2023)',
-      organization: 'SEBRAE',
-      description: 'Membro de uma das 6 equipes vencedoras do programa de empreendedorismo universitário do Sebrae em 2023.',
-      year: '2023',
-      badge: '1º Lugar / Vencedor'
-    },
-    {
       title: '2º Lugar no Mandacaru.dev (Módulo Juazeiro 2024)',
       organization: 'Mandacaru.dev',
       description: 'Integrante da equipe vice-campeã na categoria Gestão Ágil, Inovação e Empreendedorismo.',
       year: '2024',
       badge: '2º Lugar'
+    },
+    {
+      title: 'Vencedor do Desafio Empreendedor Universitário (Sebrae 2023)',
+      organization: 'SEBRAE',
+      description: 'Membro de uma das 6 equipes vencedoras do programa de empreendedorismo universitário do Sebrae em 2023.',
+      year: '2023',
+      badge: '1º Lugar / Vencedor'
     }
   ]
 };
