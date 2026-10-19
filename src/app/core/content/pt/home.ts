@@ -6,7 +6,7 @@ export const homeContent = {
     ctaPrimary: 'Ver Projetos',
     ctaSecondary: 'Fale Comigo',
     stats: [
-      { value: '1', label: 'Projeto Ativo', prefix: '' },
+      { value: '3', label: 'Projetos Ativos', prefix: '' },
       { value: '2026', label: 'Ano de Fundação', prefix: '' },
       { value: '2', label: 'Ideias em Desenvolvimento', prefix: '' },
       { value: '1', label: 'Fundador Dedicado', prefix: '' }

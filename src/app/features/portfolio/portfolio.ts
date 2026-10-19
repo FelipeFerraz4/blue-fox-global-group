@@ -23,7 +23,7 @@ export class Portfolio {
         title: content.title,
         description: content.subtitle,
         url: `https://bluefoxglobalgroup.com/${lang}/portfolio`,
-        keywords: 'Portfólio, Projects, Empresas, Blue Fox Aquarismo, Games, AI, Tecnologia'
+        keywords: 'Portfólio, Projects, Empresas, Blue Fox Aquarismo, Blue Fox Finance, Blue Fox Games, AI, Tecnologia'
       });
     });
   }

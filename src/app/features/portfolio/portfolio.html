@@ -23,6 +23,12 @@
       </button>
       <button
         class="filter-btn"
+        [class.active]="selectedCategory() === 'tools'"
+        (click)="setCategory('tools')">
+        {{ translationService.currentContent().portfolio.categories.tools }}
+      </button>
+      <button
+        class="filter-btn"
         [class.active]="selectedCategory() === 'games'"
         (click)="setCategory('games')">
         {{ translationService.currentContent().portfolio.categories.games }}

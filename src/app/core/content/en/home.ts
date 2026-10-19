@@ -6,7 +6,7 @@ export const homeContent = {
     ctaPrimary: 'View Projects',
     ctaSecondary: 'Get in Touch',
     stats: [
-      { value: '1', label: 'Active Project', prefix: '' },
+      { value: '3', label: 'Active Projects', prefix: '' },
       { value: '2026', label: 'Year Founded', prefix: '' },
       { value: '2', label: 'Ideas in Development', prefix: '' },
       { value: '1', label: 'Dedicated Founder', prefix: '' }

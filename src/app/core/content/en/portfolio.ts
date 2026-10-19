@@ -25,14 +25,24 @@ export const portfolioContent = {
       website: 'https://bluefoxaquarismo.space/'
     },
     {
+      id: 'blue-fox-finance',
+      name: 'Blue Fox Finance',
+      tagline: 'High-Precision Financial Control',
+      category: 'tools',
+      status: 'active',
+      description: 'Expense tracking system with batch entries, installments calculated automatically from the card closing date, split by buyer, and a monthly dashboard. Built for the group\'s internal use and now open to families and partners, with single sign-on through Blue Fox ID.',
+      highlightMetric: 'Online & Active',
+      website: 'https://finance.bluefoxglobalgroup.com/'
+    },
+    {
       id: 'blue-fox-games',
-      name: 'Blue Fox Games & Apps',
-      tagline: 'Games and Applications for Multiple Platforms',
+      name: 'Blue Fox Games',
+      tagline: 'Online Games to Play Solo or with Friends',
       category: 'games',
-      status: 'soon',
-      description: 'Development and publishing of indie games and useful apps/tools for web and mobile, combining creativity with modern technology.',
-      highlightMetric: 'In Development',
-      website: '#'
+      status: 'active',
+      description: 'Quick games right in the browser, with link-based rooms to play in real time with someone far away. The first title, the 1v1 Memory Game, is available now, and new games are on the roadmap.',
+      highlightMetric: 'Online & Active',
+      website: 'https://games.bluefoxglobalgroup.com/'
     },
     {
       id: 'blue-fox-youtube',
