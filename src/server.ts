@@ -12,6 +12,49 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+app.disable('x-powered-by');
+
+/**
+ * Cabeçalhos de segurança. HSTS e redirecionamento http→https ficam no proxy/TLS (nginx).
+ *
+ * CSP: o build não gera scripts inline (sem event replay e sem CSS crítico com `onload`),
+ * então `script-src 'self'` basta. `style-src 'unsafe-inline'` é necessário porque o Angular
+ * injeta os estilos dos componentes em <style> em tempo de execução.
+ */
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data:",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+].join('; ');
+
+app.use((_req, res, next) => {
+  res.setHeader('Content-Security-Policy', CONTENT_SECURITY_POLICY);
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=()',
+  );
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+  next();
+});
+
+/** Arquivos com hash no nome (ex.: main-LMOIR2E7.js) nunca mudam; o resto (sitemap, robots, imagens) precisa poder ser atualizado. */
+const HASHED_ASSET = /-[A-Za-z0-9]{8}\.(?:js|mjs|css|woff2?)$/;
+
+function cacheControlFor(filePath: string): string {
+  return HASHED_ASSET.test(filePath)
+    ? 'public, max-age=31536000, immutable'
+    : 'public, max-age=3600';
+}
+
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -29,9 +72,12 @@ const angularApp = new AngularNodeAppEngine();
  */
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
     index: false,
     redirect: false,
+    cacheControl: false,
+    setHeaders: (res, filePath) => {
+      res.setHeader('Cache-Control', cacheControlFor(filePath));
+    },
   }),
 );
 
