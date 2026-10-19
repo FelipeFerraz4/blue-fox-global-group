@@ -10,7 +10,16 @@ import { join } from 'node:path';
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+/**
+ * O nginx de produção envia `X-Forwarded-For` e `X-Forwarded-Proto` (e o modelo de vhost do Finance também
+ * envia `-Host` e `-Port`). Cabeçalhos `X-Forwarded-*` fora desta lista fazem o Angular recusar o SSR e
+ * devolver o HTML vazio (renderização só no navegador), com status 200 e só um aviso no log.
+ * Ao passar uma lista, SÓ estes cabeçalhos são aceitos. O host continua validado contra `allowedHosts`
+ * e a porta 4000 não é publicada em produção: só o proxy chega aqui.
+ */
+const angularApp = new AngularNodeAppEngine({
+  trustProxyHeaders: ['x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-host', 'x-forwarded-port'],
+});
 
 app.disable('x-powered-by');
 
