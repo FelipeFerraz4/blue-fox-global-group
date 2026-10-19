@@ -61,6 +61,20 @@ O servidor ([src/server.ts](src/server.ts)) define:
 
 O Angular só renderiza no servidor para hosts autorizados em `angular.json` (`security.allowedHosts`: `bluefoxglobalgroup.com`, `www.bluefoxglobalgroup.com`, `blue-fox-global-group` e `localhost`). Qualquer outro `Host` recebe **400**. Para acessar por outro nome (outro domínio ou IP), adicione-o ali ou defina `NG_ALLOWED_HOSTS` no ambiente do container. O proxy deve repassar o `Host` original (`proxy_set_header Host $host;`).
 
+### Cabeçalhos do proxy (`X-Forwarded-*`)
+
+O nginx envia `X-Forwarded-For`, `X-Forwarded-Proto` (e o modelo do Finance também `-Host` e `-Port`). O Angular só aceita os cabeçalhos listados em `trustProxyHeaders` no [src/server.ts](src/server.ts); qualquer outro faz o SSR **falhar em silêncio**: a resposta continua 200, mas vem o HTML vazio (renderização só no navegador) e o log mostra `Received "x-forwarded-…" header but "trustProxyHeaders" was not set up to allow it`. Se o proxy passar a enviar outro `X-Forwarded-*`, inclua-o na lista.
+
+> Teste sempre **atrás de um nginx**: chamar o container direto (`curl localhost:4000`) não envia esses cabeçalhos e esconde o problema. Veja a página no HTML cru (`curl`) e confira que o texto da página está lá.
+
+### Depois do deploy
+
+O `upstream` do nginx resolve o nome `blue-fox-global-group` só ao iniciar. Se o container for recriado com outro IP, o nginx continua no IP antigo e o `@fallback` do vhost **redireciona os visitantes para o Aquarismo**. Recarregue o nginx após cada deploy:
+
+```bash
+docker exec infra-nginx nginx -s reload
+```
+
 ### Rotas inexistentes
 
 Qualquer endereço fora das rotas pré-renderizadas é renderizado sob demanda pela página 404, com **status HTTP 404** e `noindex`.

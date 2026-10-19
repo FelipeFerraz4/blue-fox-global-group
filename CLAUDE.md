@@ -30,7 +30,8 @@ public/                      # logos, favicons, og-default.jpg, fonts/ (Inter e 
 2. **SEO**: toda página chama `SeoService.updateMetadata()` em um `effect`. Imagens de compartilhamento precisam de URL absoluta (o serviço já converte). Páginas que não devem ser indexadas usam `robots: 'noindex, follow'` e `canonical: false`.
 3. **SSR**: use `isPlatformBrowser` antes de tocar em `window` ou `localStorage`; para o DOM use o token `DOCUMENT`, não o `document` global.
 4. **CSP estrita (`script-src 'self'`)**: não adicione `<script>` inline, handlers `onclick=`/`onload=`, nem reative `withEventReplay()` ou `inlineCritical`. Não carregue fontes, scripts ou estilos de CDNs: a CSP bloqueia e a política de privacidade afirma que o site não faz requisições a terceiros. Imagens e fontes ficam em `public/`.
-5. **Hosts do SSR**: `angular.json` → `security.allowedHosts`. Host fora da lista recebe 400. Novo domínio = adicionar ali (ou `NG_ALLOWED_HOSTS`).
+5. **Proxy**: o SSR só funciona se todo `X-Forwarded-*` enviado pelo nginx estiver em `trustProxyHeaders` (`src/server.ts`); do contrário a resposta é 200 com HTML vazio e só um aviso no log. Teste sempre atrás de um nginx (ver README), nunca só direto no container. Após deploy, `docker exec infra-nginx nginx -s reload`.
+5b. **Hosts do SSR**: `angular.json` → `security.allowedHosts`. Host fora da lista recebe 400. Novo domínio = adicionar ali (ou `NG_ALLOWED_HOSTS`).
 6. **Dados do visitante**: o site não tem formulários nem cookies; contato é `mailto:`. Qualquer coleta nova exige atualizar `core/content/{pt,en}/privacy.ts`.
 7. **Dependências**: os pacotes `@angular/*` têm versão exata uns dos outros (peers) e precisam subir **juntos**. Rode `npm run audit:prod` antes de publicar.
 8. Visual: tom corporativo premium da marca-mãe (skill `bluefox-design-system`): gradiente oficial, seções navy, CTAs em pílula.
