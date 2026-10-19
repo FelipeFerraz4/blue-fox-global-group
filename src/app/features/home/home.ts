@@ -36,13 +36,20 @@ export class Home implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.animateCounters();
     } else {
-      this.animatedStats.set(['1', '2026', '2', '1']);
+      this.animatedStats.set(this.statTargets().map(String));
     }
   }
 
+  /** Metas dos contadores, lidas do conteúdo (core/content/<lang>/home.ts) para nunca divergirem do texto. */
+  private statTargets(): number[] {
+    return this.translationService
+      .currentContent()
+      .home.hero.stats.map((stat) => Number(stat.value));
+  }
+
   private animateCounters() {
-    const targets = [1, 2026, 2, 1];
-    const current = [0, 0, 0, 0];
+    const targets = this.statTargets();
+    const current = targets.map(() => 0);
     const steps = 60;
     const duration = 1500;
     const intervalTime = duration / steps;
@@ -55,16 +62,11 @@ export class Home implements OnInit {
         if (current[i] > targets[i]) current[i] = targets[i];
       }
 
-      this.animatedStats.set([
-        `${current[0]}`,
-        `${current[1]}`,
-        `${current[2]}`,
-        `${current[3]}`
-      ]);
+      this.animatedStats.set(current.map(String));
 
       if (step >= steps) {
         clearInterval(timer);
-        this.animatedStats.set(['1', '2026', '2', '1']);
+        this.animatedStats.set(targets.map(String));
       }
     }, intervalTime);
   }
